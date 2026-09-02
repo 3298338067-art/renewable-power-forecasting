@@ -1,0 +1,135 @@
+project:
+  name: day_ahead_solar_power_forecasting
+  dataset_preference: GEFCom2014_Solar
+
+task:
+  frequency: hourly
+  lookback_hours: 24
+  forecast_horizon_hours: 24
+  target: photovoltaic_power
+  weather_input: forecast_origin_available_nwp
+
+data:
+  raw_csv: data/raw/gefcom2014/solar/Solar/Task 15/predictors15.csv
+  interim_csv: data/interim/gefcom2014_solar_hourly.csv.gz
+  processed_dir: data/processed/day_ahead
+  forecast_origin_hour: 0
+  split_method: chronological
+  split_dates:
+    train: ["2012-04-02", "2013-12-31"]
+    validation: ["2014-01-01", "2014-03-31"]
+    test: ["2014-04-01", "2014-06-30"]
+  instantaneous_nwp: [VAR78, VAR79, VAR134, VAR157, VAR164, VAR165, VAR166, VAR167]
+  accumulated_nwp: [VAR169, VAR175, VAR178, VAR228]
+  scaler_fit_scope: train_only
+
+models:
+  - persistence
+  - seasonal_persistence
+  - xgboost
+  - lstm
+  - temporal_attention_lstm
+
+xgboost:
+  device: cuda
+  tree_method: hist
+  objective: reg:squarederror
+  eval_metric: rmse
+  early_stopping_rounds: 50
+  selection_seed: 42
+  selection_metric: validation_rmse
+  prediction_clip: [0.0, 1.0]
+  n_jobs: 4
+  candidates:
+    - name: depth3_lr005
+      n_estimators: 600
+      max_depth: 3
+      learning_rate: 0.05
+      min_child_weight: 5
+      subsample: 0.9
+      colsample_bytree: 0.9
+      reg_lambda: 1.0
+    - name: depth4_lr003
+      n_estimators: 800
+      max_depth: 4
+      learning_rate: 0.03
+      min_child_weight: 5
+      subsample: 0.9
+      colsample_bytree: 0.9
+      reg_lambda: 1.0
+    - name: depth6_lr003
+      n_estimators: 800
+      max_depth: 6
+      learning_rate: 0.03
+      min_child_weight: 5
+      subsample: 0.9
+      colsample_bytree: 0.9
+      reg_lambda: 1.0
+
+lstm:
+  device: cuda
+  hidden_size: 64
+  num_layers: 1
+  zone_embedding_dim: 4
+  batch_size: 128
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  max_epochs: 100
+  early_stopping_patience: 12
+  early_stopping_min_delta: 0.00001
+  gradient_clip_norm: 1.0
+  loss: mse
+  prediction_clip: [0.0, 1.0]
+  deterministic_algorithms: true
+  num_workers: 0
+
+attention_lstm:
+  device: cuda
+  hidden_size: 64
+  num_layers: 1
+  zone_embedding_dim: 4
+  attention_size: 64
+  batch_size: 128
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  max_epochs: 100
+  early_stopping_patience: 12
+  early_stopping_min_delta: 0.00001
+  gradient_clip_norm: 1.0
+  loss: mse
+  prediction_clip: [0.0, 1.0]
+  deterministic_algorithms: true
+  num_workers: 0
+
+lstm_ablations:
+  post_hoc_exploratory: true
+  variants:
+    - history_only
+    - nwp_only
+  full_input_control_metrics: artifacts/lstm/metrics.json
+
+exploratory_analysis:
+  post_hoc_exploratory: true
+  high_power_quantile: 0.75
+  ramp_quantile: 0.90
+  bootstrap_block_lengths_days: [3, 7, 14]
+  primary_block_length_days: 7
+  bootstrap_resamples: 2000
+  bootstrap_seed: 20260901
+
+evaluation:
+  metrics:
+    - mae
+    - rmse
+    - nrmse_capacity_percent
+    - irradiance_active_mae
+    - irradiance_active_rmse
+    - irradiance_active_nrmse_capacity_percent
+  random_seeds:
+    - 42
+    - 2026
+    - 3407
+
+interpretation:
+  attention_weights_are_causal_importance: false
+  xgboost_feature_contributions_are_causal: false

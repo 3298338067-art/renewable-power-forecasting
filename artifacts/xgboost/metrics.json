@@ -1,0 +1,1607 @@
+{
+  "aggregate": {
+    "test": {
+      "irradiance_active": {
+        "mae": {
+          "mean": 0.06496005900454177,
+          "std": 0.0004121725458491948
+        },
+        "nrmse_capacity_percent": {
+          "mean": 10.003211170583636,
+          "std": 0.04403883142069218
+        },
+        "rmse": {
+          "mean": 0.10003211170583637,
+          "std": 0.00044038831420692784
+        }
+      },
+      "overall": {
+        "mae": {
+          "mean": 0.031186444162309705,
+          "std": 0.00019872779321677403
+        },
+        "nrmse_capacity_percent": {
+          "mean": 6.894451547136502,
+          "std": 0.03031772078255185
+        },
+        "rmse": {
+          "mean": 0.06894451547136503,
+          "std": 0.00030317720782551853
+        }
+      }
+    },
+    "validation": {
+      "irradiance_active": {
+        "mae": {
+          "mean": 0.061408016128755065,
+          "std": 0.0002536500575782507
+        },
+        "nrmse_capacity_percent": {
+          "mean": 10.183462380201354,
+          "std": 0.043089369060399195
+        },
+        "rmse": {
+          "mean": 0.10183462380201354,
+          "std": 0.0004308936906039928
+        }
+      },
+      "overall": {
+        "mae": {
+          "mean": 0.0363836872296979,
+          "std": 0.00011091042349397942
+        },
+        "nrmse_capacity_percent": {
+          "mean": 7.813234335373207,
+          "std": 0.03282401052469289
+        },
+        "rmse": {
+          "mean": 0.07813234335373208,
+          "std": 0.00032824010524693014
+        }
+      }
+    }
+  },
+  "baseline_comparison": {
+    "test": {
+      "irradiance_active": {
+        "daily_persistence_rmse": 0.19277632290760113,
+        "rmse_reduction_percent": 48.109752174398324,
+        "xgboost_mean_rmse": 0.10003211170583637
+      },
+      "overall": {
+        "daily_persistence_rmse": 0.13283629926182536,
+        "rmse_reduction_percent": 48.09813593536448,
+        "xgboost_mean_rmse": 0.06894451547136503
+      }
+    },
+    "validation": {
+      "irradiance_active": {
+        "daily_persistence_rmse": 0.18743037248544897,
+        "rmse_reduction_percent": 45.6680246367651,
+        "xgboost_mean_rmse": 0.10183462380201354
+      },
+      "overall": {
+        "daily_persistence_rmse": 0.14379468313553037,
+        "rmse_reduction_percent": 45.66395526593272,
+        "xgboost_mean_rmse": 0.07813234335373208
+      }
+    }
+  },
+  "dataset": "GEFCom2014 Solar Track",
+  "feature_count": 44,
+  "feature_design": "24 historical power values, target-hour NWP, four UTC calendar features, forecast horizon hour, and zone one-hot encoding",
+  "feature_importance": [
+    {
+      "feature": "var169_hourly",
+      "mean_importance": 0.5311824977397919
+    },
+    {
+      "feature": "var178_hourly",
+      "mean_importance": 0.16348237792650858
+    },
+    {
+      "feature": "power_lag_15h",
+      "mean_importance": 0.03474325314164162
+    },
+    {
+      "feature": "power_lag_4h",
+      "mean_importance": 0.03296591341495514
+    },
+    {
+      "feature": "zone_2",
+      "mean_importance": 0.030554337427020073
+    },
+    {
+      "feature": "horizon_hour",
+      "mean_importance": 0.016121389033893745
+    },
+    {
+      "feature": "power_lag_0h",
+      "mean_importance": 0.01608100316176812
+    },
+    {
+      "feature": "utc_hour_sin",
+      "mean_importance": 0.014855837759872278
+    },
+    {
+      "feature": "day_of_year_cos",
+      "mean_importance": 0.014456109454234442
+    },
+    {
+      "feature": "utc_hour_cos",
+      "mean_importance": 0.014061744014422098
+    },
+    {
+      "feature": "zone_1",
+      "mean_importance": 0.012972753494977951
+    },
+    {
+      "feature": "var79",
+      "mean_importance": 0.011172506958246231
+    },
+    {
+      "feature": "power_lag_3h",
+      "mean_importance": 0.010686786845326424
+    },
+    {
+      "feature": "zone_3",
+      "mean_importance": 0.008535042870789766
+    },
+    {
+      "feature": "power_lag_16h",
+      "mean_importance": 0.006873010192066431
+    },
+    {
+      "feature": "var175_hourly",
+      "mean_importance": 0.006543502522011598
+    },
+    {
+      "feature": "var157",
+      "mean_importance": 0.005573682797451814
+    },
+    {
+      "feature": "power_lag_17h",
+      "mean_importance": 0.005192132045825322
+    },
+    {
+      "feature": "power_lag_1h",
+      "mean_importance": 0.00484342190126578
+    },
+    {
+      "feature": "var164",
+      "mean_importance": 0.0046535128106673556
+    },
+    {
+      "feature": "var228_hourly",
+      "mean_importance": 0.004215940988312165
+    },
+    {
+      "feature": "var165",
+      "mean_importance": 0.00406910153105855
+    },
+    {
+      "feature": "power_lag_18h",
+      "mean_importance": 0.004008016704271237
+    },
+    {
+      "feature": "var166",
+      "mean_importance": 0.003983054930965106
+    },
+    {
+      "feature": "power_lag_21h",
+      "mean_importance": 0.003755561774596572
+    },
+    {
+      "feature": "var167",
+      "mean_importance": 0.003726644441485405
+    },
+    {
+      "feature": "var134",
+      "mean_importance": 0.003634549444541335
+    },
+    {
+      "feature": "var78",
+      "mean_importance": 0.00340028766853114
+    },
+    {
+      "feature": "power_lag_20h",
+      "mean_importance": 0.0033381894851724305
+    },
+    {
+      "feature": "day_of_year_sin",
+      "mean_importance": 0.003295289740587274
+    },
+    {
+      "feature": "power_lag_2h",
+      "mean_importance": 0.0032079833714912334
+    },
+    {
+      "feature": "power_lag_19h",
+      "mean_importance": 0.0031233401969075203
+    },
+    {
+      "feature": "power_lag_22h",
+      "mean_importance": 0.0028675058080504337
+    },
+    {
+      "feature": "power_lag_5h",
+      "mean_importance": 0.0027793068438768387
+    },
+    {
+      "feature": "power_lag_14h",
+      "mean_importance": 0.0026014420048644147
+    },
+    {
+      "feature": "power_lag_23h",
+      "mean_importance": 0.0024429447948932648
+    },
+    {
+      "feature": "power_lag_13h",
+      "mean_importance": 0.0
+    },
+    {
+      "feature": "power_lag_12h",
+      "mean_importance": 0.0
+    },
+    {
+      "feature": "power_lag_11h",
+      "mean_importance": 0.0
+    },
+    {
+      "feature": "power_lag_10h",
+      "mean_importance": 0.0
+    },
+    {
+      "feature": "power_lag_9h",
+      "mean_importance": 0.0
+    },
+    {
+      "feature": "power_lag_8h",
+      "mean_importance": 0.0
+    },
+    {
+      "feature": "power_lag_7h",
+      "mean_importance": 0.0
+    },
+    {
+      "feature": "power_lag_6h",
+      "mean_importance": 0.0
+    }
+  ],
+  "feature_names": [
+    "power_lag_23h",
+    "power_lag_22h",
+    "power_lag_21h",
+    "power_lag_20h",
+    "power_lag_19h",
+    "power_lag_18h",
+    "power_lag_17h",
+    "power_lag_16h",
+    "power_lag_15h",
+    "power_lag_14h",
+    "power_lag_13h",
+    "power_lag_12h",
+    "power_lag_11h",
+    "power_lag_10h",
+    "power_lag_9h",
+    "power_lag_8h",
+    "power_lag_7h",
+    "power_lag_6h",
+    "power_lag_5h",
+    "power_lag_4h",
+    "power_lag_3h",
+    "power_lag_2h",
+    "power_lag_1h",
+    "power_lag_0h",
+    "var78",
+    "var79",
+    "var134",
+    "var157",
+    "var164",
+    "var165",
+    "var166",
+    "var167",
+    "var169_hourly",
+    "var175_hourly",
+    "var178_hourly",
+    "var228_hourly",
+    "utc_hour_sin",
+    "utc_hour_cos",
+    "day_of_year_sin",
+    "day_of_year_cos",
+    "horizon_hour",
+    "zone_1",
+    "zone_2",
+    "zone_3"
+  ],
+  "interpretation_note": "Feature importance is descriptive and does not establish causality.",
+  "model": "XGBoost",
+  "prediction_clip": [
+    0.0,
+    1.0
+  ],
+  "random_seeds": [
+    42,
+    2026,
+    3407
+  ],
+  "row_counts": {
+    "test": 6552,
+    "train": 46008,
+    "validation": 6480
+  },
+  "runs": [
+    {
+      "best_iteration": 274,
+      "seed": 42,
+      "test": {
+        "by_horizon": [
+          {
+            "count": 273,
+            "horizon_hour": 1,
+            "mae": 0.08093770385989339,
+            "nrmse_capacity_percent": 11.256265013771268,
+            "rmse": 0.11256265013771267
+          },
+          {
+            "count": 273,
+            "horizon_hour": 2,
+            "mae": 0.09677193570377189,
+            "nrmse_capacity_percent": 13.584878561121839,
+            "rmse": 0.13584878561121838
+          },
+          {
+            "count": 273,
+            "horizon_hour": 3,
+            "mae": 0.09794258387697923,
+            "nrmse_capacity_percent": 13.597489668625693,
+            "rmse": 0.13597489668625692
+          },
+          {
+            "count": 273,
+            "horizon_hour": 4,
+            "mae": 0.08727589142491747,
+            "nrmse_capacity_percent": 12.200986974634905,
+            "rmse": 0.12200986974634905
+          },
+          {
+            "count": 273,
+            "horizon_hour": 5,
+            "mae": 0.08468387385100236,
+            "nrmse_capacity_percent": 11.461088530822506,
+            "rmse": 0.11461088530822507
+          },
+          {
+            "count": 273,
+            "horizon_hour": 6,
+            "mae": 0.06427620028933653,
+            "nrmse_capacity_percent": 8.707895959293317,
+            "rmse": 0.08707895959293317
+          },
+          {
+            "count": 273,
+            "horizon_hour": 7,
+            "mae": 0.02277841781724019,
+            "nrmse_capacity_percent": 3.5430882536741524,
+            "rmse": 0.03543088253674152
+          },
+          {
+            "count": 273,
+            "horizon_hour": 8,
+            "mae": 0.003515764786459927,
+            "nrmse_capacity_percent": 0.6962236823398724,
+            "rmse": 0.006962236823398724
+          },
+          {
+            "count": 273,
+            "horizon_hour": 9,
+            "mae": 0.00034412102385574607,
+            "nrmse_capacity_percent": 0.10264163850763017,
+            "rmse": 0.0010264163850763016
+          },
+          {
+            "count": 273,
+            "horizon_hour": 10,
+            "mae": 0.00036427607903113734,
+            "nrmse_capacity_percent": 0.1231084940268917,
+            "rmse": 0.0012310849402689169
+          },
+          {
+            "count": 273,
+            "horizon_hour": 11,
+            "mae": 0.00035923604781811056,
+            "nrmse_capacity_percent": 0.14616456804441355,
+            "rmse": 0.0014616456804441354
+          },
+          {
+            "count": 273,
+            "horizon_hour": 12,
+            "mae": 0.00033813218275705975,
+            "nrmse_capacity_percent": 0.11868794366570368,
+            "rmse": 0.0011868794366570368
+          },
+          {
+            "count": 273,
+            "horizon_hour": 13,
+            "mae": 0.0004275782313538995,
+            "nrmse_capacity_percent": 0.1427108968072892,
+            "rmse": 0.001427108968072892
+          },
+          {
+            "count": 273,
+            "horizon_hour": 14,
+            "mae": 0.000425888723506159,
+            "nrmse_capacity_percent": 0.14167340695975433,
+            "rmse": 0.0014167340695975432
+          },
+          {
+            "count": 273,
+            "horizon_hour": 15,
+            "mae": 0.0005347040437516712,
+            "nrmse_capacity_percent": 0.1933722967850382,
+            "rmse": 0.001933722967850382
+          },
+          {
+            "count": 273,
+            "horizon_hour": 16,
+            "mae": 0.000640565004104223,
+            "nrmse_capacity_percent": 0.22797058680831117,
+            "rmse": 0.002279705868083112
+          },
+          {
+            "count": 273,
+            "horizon_hour": 17,
+            "mae": 0.0005738215022908026,
+            "nrmse_capacity_percent": 0.207542783708462,
+            "rmse": 0.00207542783708462
+          },
+          {
+            "count": 273,
+            "horizon_hour": 18,
+            "mae": 0.0006971750067267226,
+            "nrmse_capacity_percent": 0.2338101304517475,
+            "rmse": 0.002338101304517475
+          },
+          {
+            "count": 273,
+            "horizon_hour": 19,
+            "mae": 0.0007590599112458281,
+            "nrmse_capacity_percent": 0.23595815358772848,
+            "rmse": 0.0023595815358772847
+          },
+          {
+            "count": 273,
+            "horizon_hour": 20,
+            "mae": 0.0011464663040943635,
+            "nrmse_capacity_percent": 0.2678469586594207,
+            "rmse": 0.002678469586594207
+          },
+          {
+            "count": 273,
+            "horizon_hour": 21,
+            "mae": 0.0040466605105893404,
+            "nrmse_capacity_percent": 0.5943134067739901,
+            "rmse": 0.0059431340677399015
+          },
+          {
+            "count": 273,
+            "horizon_hour": 22,
+            "mae": 0.028764351046204503,
+            "nrmse_capacity_percent": 3.957915658039853,
+            "rmse": 0.03957915658039853
+          },
+          {
+            "count": 273,
+            "horizon_hour": 23,
+            "mae": 0.07614583054714369,
+            "nrmse_capacity_percent": 9.807647698590683,
+            "rmse": 0.09807647698590684
+          },
+          {
+            "count": 273,
+            "horizon_hour": 24,
+            "mae": 0.09884665263032083,
+            "nrmse_capacity_percent": 13.017850697214634,
+            "rmse": 0.13017850697214634
+          }
+        ],
+        "by_zone": {
+          "1": {
+            "count": 2184,
+            "mae": 0.029803036368244423,
+            "nrmse_capacity_percent": 6.636116030639419,
+            "rmse": 0.06636116030639419
+          },
+          "2": {
+            "count": 2184,
+            "mae": 0.033345521799758436,
+            "nrmse_capacity_percent": 7.2035031469271384,
+            "rmse": 0.07203503146927139
+          },
+          "3": {
+            "count": 2184,
+            "mae": 0.030926053132546528,
+            "nrmse_capacity_percent": 6.891038466293891,
+            "rmse": 0.0689103846629389
+          }
+        },
+        "irradiance_active": {
+          "count": 3111,
+          "mae": 0.06525498999764895,
+          "nrmse_capacity_percent": 10.031344596080586,
+          "rmse": 0.10031344596080587
+        },
+        "overall": {
+          "count": 6552,
+          "mae": 0.03135820376684979,
+          "nrmse_capacity_percent": 6.914113698415261,
+          "rmse": 0.06914113698415261
+        }
+      },
+      "validation": {
+        "by_horizon": [
+          {
+            "count": 270,
+            "horizon_hour": 1,
+            "mae": 0.06786653829945458,
+            "nrmse_capacity_percent": 9.408185933563178,
+            "rmse": 0.09408185933563179
+          },
+          {
+            "count": 270,
+            "horizon_hour": 2,
+            "mae": 0.07962412180172072,
+            "nrmse_capacity_percent": 11.577005547746182,
+            "rmse": 0.11577005547746182
+          },
+          {
+            "count": 270,
+            "horizon_hour": 3,
+            "mae": 0.08769287839531899,
+            "nrmse_capacity_percent": 13.04567254838172,
+            "rmse": 0.1304567254838172
+          },
+          {
+            "count": 270,
+            "horizon_hour": 4,
+            "mae": 0.10002393518333082,
+            "nrmse_capacity_percent": 15.559543964753027,
+            "rmse": 0.15559543964753028
+          },
+          {
+            "count": 270,
+            "horizon_hour": 5,
+            "mae": 0.09241431683853821,
+            "nrmse_capacity_percent": 14.747380868476892,
+            "rmse": 0.14747380868476892
+          },
+          {
+            "count": 270,
+            "horizon_hour": 6,
+            "mae": 0.07212269913267207,
+            "nrmse_capacity_percent": 10.834006673182426,
+            "rmse": 0.10834006673182427
+          },
+          {
+            "count": 270,
+            "horizon_hour": 7,
+            "mae": 0.04944093547140559,
+            "nrmse_capacity_percent": 7.750645104806929,
+            "rmse": 0.07750645104806929
+          },
+          {
+            "count": 270,
+            "horizon_hour": 8,
+            "mae": 0.03172364951697765,
+            "nrmse_capacity_percent": 4.441081854738526,
+            "rmse": 0.04441081854738526
+          },
+          {
+            "count": 270,
+            "horizon_hour": 9,
+            "mae": 0.011907828113180585,
+            "nrmse_capacity_percent": 1.9304549447895596,
+            "rmse": 0.019304549447895596
+          },
+          {
+            "count": 270,
+            "horizon_hour": 10,
+            "mae": 0.0009210147347268368,
+            "nrmse_capacity_percent": 0.16456799141728537,
+            "rmse": 0.0016456799141728537
+          },
+          {
+            "count": 270,
+            "horizon_hour": 11,
+            "mae": 0.00046363059017393325,
+            "nrmse_capacity_percent": 0.12896013887711702,
+            "rmse": 0.0012896013887711702
+          },
+          {
+            "count": 270,
+            "horizon_hour": 12,
+            "mae": 0.0004930503942348339,
+            "nrmse_capacity_percent": 0.1242621747016754,
+            "rmse": 0.001242621747016754
+          },
+          {
+            "count": 270,
+            "horizon_hour": 13,
+            "mae": 0.0005661541113147029,
+            "nrmse_capacity_percent": 0.18051524364687452,
+            "rmse": 0.0018051524364687452
+          },
+          {
+            "count": 270,
+            "horizon_hour": 14,
+            "mae": 0.0004905145477365565,
+            "nrmse_capacity_percent": 0.12427413298994677,
+            "rmse": 0.0012427413298994677
+          },
+          {
+            "count": 270,
+            "horizon_hour": 15,
+            "mae": 0.00048196503409632933,
+            "nrmse_capacity_percent": 0.12339786877905853,
+            "rmse": 0.0012339786877905853
+          },
+          {
+            "count": 270,
+            "horizon_hour": 16,
+            "mae": 0.0005477057011039169,
+            "nrmse_capacity_percent": 0.1434944896233524,
+            "rmse": 0.001434944896233524
+          },
+          {
+            "count": 270,
+            "horizon_hour": 17,
+            "mae": 0.0004686608910560608,
+            "nrmse_capacity_percent": 0.11364272341188131,
+            "rmse": 0.001136427234118813
+          },
+          {
+            "count": 270,
+            "horizon_hour": 18,
+            "mae": 0.0004665623660440798,
+            "nrmse_capacity_percent": 0.10226439544107763,
+            "rmse": 0.0010226439544107763
+          },
+          {
+            "count": 270,
+            "horizon_hour": 19,
+            "mae": 0.0005375980352390023,
+            "nrmse_capacity_percent": 0.0863715306494176,
+            "rmse": 0.000863715306494176
+          },
+          {
+            "count": 270,
+            "horizon_hour": 20,
+            "mae": 0.003596348816251891,
+            "nrmse_capacity_percent": 0.6892905960263895,
+            "rmse": 0.006892905960263895
+          },
+          {
+            "count": 270,
+            "horizon_hour": 21,
+            "mae": 0.027918639467572105,
+            "nrmse_capacity_percent": 3.606987146449077,
+            "rmse": 0.03606987146449077
+          },
+          {
+            "count": 270,
+            "horizon_hour": 22,
+            "mae": 0.06266131400372144,
+            "nrmse_capacity_percent": 8.220654376259931,
+            "rmse": 0.08220654376259931
+          },
+          {
+            "count": 270,
+            "horizon_hour": 23,
+            "mae": 0.08455581041397872,
+            "nrmse_capacity_percent": 11.388958800200607,
+            "rmse": 0.11388958800200606
+          },
+          {
+            "count": 270,
+            "horizon_hour": 24,
+            "mae": 0.09846272726577741,
+            "nrmse_capacity_percent": 14.528131390163926,
+            "rmse": 0.14528131390163926
+          }
+        ],
+        "by_zone": {
+          "1": {
+            "count": 2160,
+            "mae": 0.03183240307940583,
+            "nrmse_capacity_percent": 6.941590113295747,
+            "rmse": 0.06941590113295747
+          },
+          "2": {
+            "count": 2160,
+            "mae": 0.04132232846311918,
+            "nrmse_capacity_percent": 9.127918386029595,
+            "rmse": 0.09127918386029595
+          },
+          "3": {
+            "count": 2160,
+            "mae": 0.03627634334817837,
+            "nrmse_capacity_percent": 7.273154609311168,
+            "rmse": 0.07273154609311168
+          }
+        },
+        "irradiance_active": {
+          "count": 3814,
+          "mae": 0.06161537355260934,
+          "nrmse_capacity_percent": 10.218762040103178,
+          "rmse": 0.10218762040103177
+        },
+        "overall": {
+          "count": 6480,
+          "mae": 0.03647702496356779,
+          "nrmse_capacity_percent": 7.840139142769653,
+          "rmse": 0.07840139142769653
+        }
+      }
+    },
+    {
+      "best_iteration": 311,
+      "seed": 2026,
+      "test": {
+        "by_horizon": [
+          {
+            "count": 273,
+            "horizon_hour": 1,
+            "mae": 0.07962578054749485,
+            "nrmse_capacity_percent": 11.072311542505362,
+            "rmse": 0.11072311542505363
+          },
+          {
+            "count": 273,
+            "horizon_hour": 2,
+            "mae": 0.09515240933104749,
+            "nrmse_capacity_percent": 13.463130312179786,
+            "rmse": 0.13463130312179786
+          },
+          {
+            "count": 273,
+            "horizon_hour": 3,
+            "mae": 0.0982477221597027,
+            "nrmse_capacity_percent": 13.637920462080505,
+            "rmse": 0.13637920462080505
+          },
+          {
+            "count": 273,
+            "horizon_hour": 4,
+            "mae": 0.0856688201577563,
+            "nrmse_capacity_percent": 12.053319050922951,
+            "rmse": 0.1205331905092295
+          },
+          {
+            "count": 273,
+            "horizon_hour": 5,
+            "mae": 0.08445686533119216,
+            "nrmse_capacity_percent": 11.50227511459711,
+            "rmse": 0.1150227511459711
+          },
+          {
+            "count": 273,
+            "horizon_hour": 6,
+            "mae": 0.06262505136007246,
+            "nrmse_capacity_percent": 8.56978125167491,
+            "rmse": 0.0856978125167491
+          },
+          {
+            "count": 273,
+            "horizon_hour": 7,
+            "mae": 0.022788589226035914,
+            "nrmse_capacity_percent": 3.51194964027783,
+            "rmse": 0.0351194964027783
+          },
+          {
+            "count": 273,
+            "horizon_hour": 8,
+            "mae": 0.003449378690824992,
+            "nrmse_capacity_percent": 0.6892563869349787,
+            "rmse": 0.006892563869349787
+          },
+          {
+            "count": 273,
+            "horizon_hour": 9,
+            "mae": 0.0005132909446152826,
+            "nrmse_capacity_percent": 0.1340540449920301,
+            "rmse": 0.0013405404499203012
+          },
+          {
+            "count": 273,
+            "horizon_hour": 10,
+            "mae": 0.0004625641928487645,
+            "nrmse_capacity_percent": 0.13795274002156918,
+            "rmse": 0.001379527400215692
+          },
+          {
+            "count": 273,
+            "horizon_hour": 11,
+            "mae": 0.00042045176465869386,
+            "nrmse_capacity_percent": 0.1565721391954015,
+            "rmse": 0.001565721391954015
+          },
+          {
+            "count": 273,
+            "horizon_hour": 12,
+            "mae": 0.00036127019277859085,
+            "nrmse_capacity_percent": 0.12827212776112426,
+            "rmse": 0.0012827212776112425
+          },
+          {
+            "count": 273,
+            "horizon_hour": 13,
+            "mae": 0.0004255639000253363,
+            "nrmse_capacity_percent": 0.13423691637013963,
+            "rmse": 0.0013423691637013961
+          },
+          {
+            "count": 273,
+            "horizon_hour": 14,
+            "mae": 0.00047684196150783216,
+            "nrmse_capacity_percent": 0.14753308756513742,
+            "rmse": 0.0014753308756513743
+          },
+          {
+            "count": 273,
+            "horizon_hour": 15,
+            "mae": 0.00046014158062009146,
+            "nrmse_capacity_percent": 0.15488245402948855,
+            "rmse": 0.0015488245402948855
+          },
+          {
+            "count": 273,
+            "horizon_hour": 16,
+            "mae": 0.0005471424742059393,
+            "nrmse_capacity_percent": 0.17230268542015195,
+            "rmse": 0.0017230268542015195
+          },
+          {
+            "count": 273,
+            "horizon_hour": 17,
+            "mae": 0.0005730945112067701,
+            "nrmse_capacity_percent": 0.20759171831598142,
+            "rmse": 0.002075917183159814
+          },
+          {
+            "count": 273,
+            "horizon_hour": 18,
+            "mae": 0.0005703563546086406,
+            "nrmse_capacity_percent": 0.18652604665156575,
+            "rmse": 0.0018652604665156576
+          },
+          {
+            "count": 273,
+            "horizon_hour": 19,
+            "mae": 0.0007151080356849419,
+            "nrmse_capacity_percent": 0.20968120013962444,
+            "rmse": 0.002096812001396244
+          },
+          {
+            "count": 273,
+            "horizon_hour": 20,
+            "mae": 0.0008391091675112099,
+            "nrmse_capacity_percent": 0.24001564620526897,
+            "rmse": 0.0024001564620526896
+          },
+          {
+            "count": 273,
+            "horizon_hour": 21,
+            "mae": 0.0035364199190016966,
+            "nrmse_capacity_percent": 0.5525696937028611,
+            "rmse": 0.005525696937028611
+          },
+          {
+            "count": 273,
+            "horizon_hour": 22,
+            "mae": 0.028597428446608737,
+            "nrmse_capacity_percent": 3.9242515495792794,
+            "rmse": 0.039242515495792794
+          },
+          {
+            "count": 273,
+            "horizon_hour": 23,
+            "mae": 0.07605015133736116,
+            "nrmse_capacity_percent": 9.784414287010977,
+            "rmse": 0.09784414287010977
+          },
+          {
+            "count": 273,
+            "horizon_hour": 24,
+            "mae": 0.09668720511535367,
+            "nrmse_capacity_percent": 12.79872283727883,
+            "rmse": 0.1279872283727883
+          }
+        ],
+        "by_zone": {
+          "1": {
+            "count": 2184,
+            "mae": 0.02915745691035683,
+            "nrmse_capacity_percent": 6.480954913248562,
+            "rmse": 0.06480954913248561
+          },
+          "2": {
+            "count": 2184,
+            "mae": 0.03319528388560051,
+            "nrmse_capacity_percent": 7.241138622112656,
+            "rmse": 0.07241138622112656
+          },
+          "3": {
+            "count": 2184,
+            "mae": 0.030553603791883186,
+            "nrmse_capacity_percent": 6.8354115415547545,
+            "rmse": 0.06835411541554755
+          }
+        },
+        "irradiance_active": {
+          "count": 3111,
+          "mae": 0.06448910009301592,
+          "nrmse_capacity_percent": 9.952459291210818,
+          "rmse": 0.09952459291210818
+        },
+        "overall": {
+          "count": 6552,
+          "mae": 0.030968781529280176,
+          "nrmse_capacity_percent": 6.8595363321105065,
+          "rmse": 0.06859536332110507
+        }
+      },
+      "validation": {
+        "by_horizon": [
+          {
+            "count": 270,
+            "horizon_hour": 1,
+            "mae": 0.06848278031856925,
+            "nrmse_capacity_percent": 9.423033827937546,
+            "rmse": 0.09423033827937546
+          },
+          {
+            "count": 270,
+            "horizon_hour": 2,
+            "mae": 0.07908571867479218,
+            "nrmse_capacity_percent": 11.522512690942998,
+            "rmse": 0.11522512690942997
+          },
+          {
+            "count": 270,
+            "horizon_hour": 3,
+            "mae": 0.08657176627053155,
+            "nrmse_capacity_percent": 12.997668729934528,
+            "rmse": 0.12997668729934528
+          },
+          {
+            "count": 270,
+            "horizon_hour": 4,
+            "mae": 0.09706041043003401,
+            "nrmse_capacity_percent": 15.217999251127512,
+            "rmse": 0.15217999251127512
+          },
+          {
+            "count": 270,
+            "horizon_hour": 5,
+            "mae": 0.09197421239482031,
+            "nrmse_capacity_percent": 14.806617683375483,
+            "rmse": 0.14806617683375484
+          },
+          {
+            "count": 270,
+            "horizon_hour": 6,
+            "mae": 0.07160907705073004,
+            "nrmse_capacity_percent": 10.73557526827385,
+            "rmse": 0.1073557526827385
+          },
+          {
+            "count": 270,
+            "horizon_hour": 7,
+            "mae": 0.05015826779590161,
+            "nrmse_capacity_percent": 7.698847055681979,
+            "rmse": 0.07698847055681979
+          },
+          {
+            "count": 270,
+            "horizon_hour": 8,
+            "mae": 0.030980092052508283,
+            "nrmse_capacity_percent": 4.330195300113801,
+            "rmse": 0.04330195300113801
+          },
+          {
+            "count": 270,
+            "horizon_hour": 9,
+            "mae": 0.011857156670561784,
+            "nrmse_capacity_percent": 1.8837278588536208,
+            "rmse": 0.01883727858853621
+          },
+          {
+            "count": 270,
+            "horizon_hour": 10,
+            "mae": 0.0014582656190180354,
+            "nrmse_capacity_percent": 0.2727277040589923,
+            "rmse": 0.0027272770405899235
+          },
+          {
+            "count": 270,
+            "horizon_hour": 11,
+            "mae": 0.0006876829045790213,
+            "nrmse_capacity_percent": 0.16494308844538025,
+            "rmse": 0.0016494308844538024
+          },
+          {
+            "count": 270,
+            "horizon_hour": 12,
+            "mae": 0.0006976285466441402,
+            "nrmse_capacity_percent": 0.18734616632671264,
+            "rmse": 0.0018734616632671264
+          },
+          {
+            "count": 270,
+            "horizon_hour": 13,
+            "mae": 0.0006935350872852184,
+            "nrmse_capacity_percent": 0.20602513952214258,
+            "rmse": 0.002060251395221426
+          },
+          {
+            "count": 270,
+            "horizon_hour": 14,
+            "mae": 0.0006949141069694802,
+            "nrmse_capacity_percent": 0.21511561048120115,
+            "rmse": 0.0021511561048120115
+          },
+          {
+            "count": 270,
+            "horizon_hour": 15,
+            "mae": 0.0006556803429568255,
+            "nrmse_capacity_percent": 0.17747030779704454,
+            "rmse": 0.0017747030779704453
+          },
+          {
+            "count": 270,
+            "horizon_hour": 16,
+            "mae": 0.0007232208494786863,
+            "nrmse_capacity_percent": 0.24051657594950154,
+            "rmse": 0.0024051657594950154
+          },
+          {
+            "count": 270,
+            "horizon_hour": 17,
+            "mae": 0.0007013021795837967,
+            "nrmse_capacity_percent": 0.2053437289509739,
+            "rmse": 0.002053437289509739
+          },
+          {
+            "count": 270,
+            "horizon_hour": 18,
+            "mae": 0.0005398322586660032,
+            "nrmse_capacity_percent": 0.12214537814620509,
+            "rmse": 0.0012214537814620508
+          },
+          {
+            "count": 270,
+            "horizon_hour": 19,
+            "mae": 0.0006631577456573723,
+            "nrmse_capacity_percent": 0.11471034792397082,
+            "rmse": 0.0011471034792397083
+          },
+          {
+            "count": 270,
+            "horizon_hour": 20,
+            "mae": 0.003573751394947909,
+            "nrmse_capacity_percent": 0.6763042588938956,
+            "rmse": 0.006763042588938956
+          },
+          {
+            "count": 270,
+            "horizon_hour": 21,
+            "mae": 0.027151673132579567,
+            "nrmse_capacity_percent": 3.481365570183815,
+            "rmse": 0.03481365570183815
+          },
+          {
+            "count": 270,
+            "horizon_hour": 22,
+            "mae": 0.06343826018963698,
+            "nrmse_capacity_percent": 8.173529576493223,
+            "rmse": 0.08173529576493223
+          },
+          {
+            "count": 270,
+            "horizon_hour": 23,
+            "mae": 0.08151743779027903,
+            "nrmse_capacity_percent": 11.197263854311142,
+            "rmse": 0.11197263854311143
+          },
+          {
+            "count": 270,
+            "horizon_hour": 24,
+            "mae": 0.09929001122989037,
+            "nrmse_capacity_percent": 14.427035060184249,
+            "rmse": 0.14427035060184248
+          }
+        ],
+        "by_zone": {
+          "1": {
+            "count": 2160,
+            "mae": 0.03203716309315631,
+            "nrmse_capacity_percent": 6.903216123467905,
+            "rmse": 0.06903216123467905
+          },
+          "2": {
+            "count": 2160,
+            "mae": 0.04061397762941228,
+            "nrmse_capacity_percent": 9.079566383566569,
+            "rmse": 0.09079566383566569
+          },
+          "3": {
+            "count": 2160,
+            "mae": 0.03613208865700909,
+            "nrmse_capacity_percent": 7.164950401123857,
+            "rmse": 0.07164950401123857
+          }
+        },
+        "irradiance_active": {
+          "count": 3814,
+          "mae": 0.06112519913005249,
+          "nrmse_capacity_percent": 10.135445722392811,
+          "rmse": 0.10135445722392811
+        },
+        "overall": {
+          "count": 6480,
+          "mae": 0.03626107645985923,
+          "nrmse_capacity_percent": 7.776662369154355,
+          "rmse": 0.07776662369154355
+        }
+      }
+    },
+    {
+      "best_iteration": 259,
+      "seed": 3407,
+      "test": {
+        "by_horizon": [
+          {
+            "count": 273,
+            "horizon_hour": 1,
+            "mae": 0.08028056180520808,
+            "nrmse_capacity_percent": 11.274648744670774,
+            "rmse": 0.11274648744670773
+          },
+          {
+            "count": 273,
+            "horizon_hour": 2,
+            "mae": 0.09610466473486834,
+            "nrmse_capacity_percent": 13.574660950057476,
+            "rmse": 0.13574660950057477
+          },
+          {
+            "count": 273,
+            "horizon_hour": 3,
+            "mae": 0.0977615139177649,
+            "nrmse_capacity_percent": 13.59298610877778,
+            "rmse": 0.1359298610877778
+          },
+          {
+            "count": 273,
+            "horizon_hour": 4,
+            "mae": 0.08674622842216448,
+            "nrmse_capacity_percent": 12.159105589794173,
+            "rmse": 0.12159105589794172
+          },
+          {
+            "count": 273,
+            "horizon_hour": 5,
+            "mae": 0.08391508007005895,
+            "nrmse_capacity_percent": 11.356986666208982,
+            "rmse": 0.11356986666208982
+          },
+          {
+            "count": 273,
+            "horizon_hour": 6,
+            "mae": 0.06404848285906371,
+            "nrmse_capacity_percent": 8.690749035529711,
+            "rmse": 0.08690749035529712
+          },
+          {
+            "count": 273,
+            "horizon_hour": 7,
+            "mae": 0.0225979425825414,
+            "nrmse_capacity_percent": 3.528146726476401,
+            "rmse": 0.035281467264764006
+          },
+          {
+            "count": 273,
+            "horizon_hour": 8,
+            "mae": 0.003610449639794945,
+            "nrmse_capacity_percent": 0.7098433911040046,
+            "rmse": 0.007098433911040046
+          },
+          {
+            "count": 273,
+            "horizon_hour": 9,
+            "mae": 0.00035535245163143605,
+            "nrmse_capacity_percent": 0.10479973772714697,
+            "rmse": 0.0010479973772714697
+          },
+          {
+            "count": 273,
+            "horizon_hour": 10,
+            "mae": 0.00037833027568928923,
+            "nrmse_capacity_percent": 0.13410631952130753,
+            "rmse": 0.0013410631952130753
+          },
+          {
+            "count": 273,
+            "horizon_hour": 11,
+            "mae": 0.00029515570554977807,
+            "nrmse_capacity_percent": 0.09246199260380486,
+            "rmse": 0.0009246199260380487
+          },
+          {
+            "count": 273,
+            "horizon_hour": 12,
+            "mae": 0.00028107820194719473,
+            "nrmse_capacity_percent": 0.08527819430496496,
+            "rmse": 0.0008527819430496496
+          },
+          {
+            "count": 273,
+            "horizon_hour": 13,
+            "mae": 0.00032189373786632833,
+            "nrmse_capacity_percent": 0.11302141769031604,
+            "rmse": 0.0011302141769031604
+          },
+          {
+            "count": 273,
+            "horizon_hour": 14,
+            "mae": 0.0003560722529233157,
+            "nrmse_capacity_percent": 0.1277182065689303,
+            "rmse": 0.001277182065689303
+          },
+          {
+            "count": 273,
+            "horizon_hour": 15,
+            "mae": 0.00037065792433071487,
+            "nrmse_capacity_percent": 0.12164100889039658,
+            "rmse": 0.0012164100889039658
+          },
+          {
+            "count": 273,
+            "horizon_hour": 16,
+            "mae": 0.0003882176055139674,
+            "nrmse_capacity_percent": 0.1411139412257044,
+            "rmse": 0.0014111394122570439
+          },
+          {
+            "count": 273,
+            "horizon_hour": 17,
+            "mae": 0.0004180704171840961,
+            "nrmse_capacity_percent": 0.15671861799423123,
+            "rmse": 0.0015671861799423123
+          },
+          {
+            "count": 273,
+            "horizon_hour": 18,
+            "mae": 0.0004543891865691859,
+            "nrmse_capacity_percent": 0.1672902901336345,
+            "rmse": 0.001672902901336345
+          },
+          {
+            "count": 273,
+            "horizon_hour": 19,
+            "mae": 0.0005596843394604359,
+            "nrmse_capacity_percent": 0.17233206287432942,
+            "rmse": 0.0017233206287432942
+          },
+          {
+            "count": 273,
+            "horizon_hour": 20,
+            "mae": 0.0007266557806140774,
+            "nrmse_capacity_percent": 0.18676354145765575,
+            "rmse": 0.0018676354145765576
+          },
+          {
+            "count": 273,
+            "horizon_hour": 21,
+            "mae": 0.0038936278328397388,
+            "nrmse_capacity_percent": 0.5513122429256518,
+            "rmse": 0.005513122429256519
+          },
+          {
+            "count": 273,
+            "horizon_hour": 22,
+            "mae": 0.028813890331851628,
+            "nrmse_capacity_percent": 3.9187824520011834,
+            "rmse": 0.039187824520011835
+          },
+          {
+            "count": 273,
+            "horizon_hour": 23,
+            "mae": 0.07855739286203524,
+            "nrmse_capacity_percent": 10.018012380229695,
+            "rmse": 0.10018012380229695
+          },
+          {
+            "count": 273,
+            "horizon_hour": 24,
+            "mae": 0.09834093964170842,
+            "nrmse_capacity_percent": 12.967079000227885,
+            "rmse": 0.12967079000227885
+          }
+        ],
+        "by_zone": {
+          "1": {
+            "count": 2184,
+            "mae": 0.029379221319809887,
+            "nrmse_capacity_percent": 6.5855553675288006,
+            "rmse": 0.065855553675288
+          },
+          "2": {
+            "count": 2184,
+            "mae": 0.03330840396150272,
+            "nrmse_capacity_percent": 7.220693091392169,
+            "rmse": 0.07220693091392169
+          },
+          "3": {
+            "count": 2184,
+            "mae": 0.031009416291084856,
+            "nrmse_capacity_percent": 6.908263545214384,
+            "rmse": 0.06908263545214384
+          }
+        },
+        "irradiance_active": {
+          "count": 3111,
+          "mae": 0.06513608692296045,
+          "nrmse_capacity_percent": 10.025829624459504,
+          "rmse": 0.10025829624459505
+        },
+        "overall": {
+          "count": 6552,
+          "mae": 0.03123234719079915,
+          "nrmse_capacity_percent": 6.909704610883738,
+          "rmse": 0.06909704610883738
+        }
+      },
+      "validation": {
+        "by_horizon": [
+          {
+            "count": 270,
+            "horizon_hour": 1,
+            "mae": 0.06661926910833076,
+            "nrmse_capacity_percent": 9.267880764576153,
+            "rmse": 0.09267880764576153
+          },
+          {
+            "count": 270,
+            "horizon_hour": 2,
+            "mae": 0.0787063077920013,
+            "nrmse_capacity_percent": 11.706720951954962,
+            "rmse": 0.11706720951954962
+          },
+          {
+            "count": 270,
+            "horizon_hour": 3,
+            "mae": 0.08779810098586259,
+            "nrmse_capacity_percent": 13.114261194215374,
+            "rmse": 0.13114261194215374
+          },
+          {
+            "count": 270,
+            "horizon_hour": 4,
+            "mae": 0.09829111905009658,
+            "nrmse_capacity_percent": 15.357266956963514,
+            "rmse": 0.15357266956963514
+          },
+          {
+            "count": 270,
+            "horizon_hour": 5,
+            "mae": 0.09171487010187573,
+            "nrmse_capacity_percent": 14.71514386853457,
+            "rmse": 0.1471514386853457
+          },
+          {
+            "count": 270,
+            "horizon_hour": 6,
+            "mae": 0.07262232880349513,
+            "nrmse_capacity_percent": 10.88275196185651,
+            "rmse": 0.1088275196185651
+          },
+          {
+            "count": 270,
+            "horizon_hour": 7,
+            "mae": 0.04979564138791627,
+            "nrmse_capacity_percent": 7.756268227528625,
+            "rmse": 0.07756268227528625
+          },
+          {
+            "count": 270,
+            "horizon_hour": 8,
+            "mae": 0.03272466351864515,
+            "nrmse_capacity_percent": 4.5281043701620565,
+            "rmse": 0.04528104370162057
+          },
+          {
+            "count": 270,
+            "horizon_hour": 9,
+            "mae": 0.01172682965676628,
+            "nrmse_capacity_percent": 1.8808758311937437,
+            "rmse": 0.018808758311937436
+          },
+          {
+            "count": 270,
+            "horizon_hour": 10,
+            "mae": 0.0009379263985667623,
+            "nrmse_capacity_percent": 0.18183713153544387,
+            "rmse": 0.0018183713153544386
+          },
+          {
+            "count": 270,
+            "horizon_hour": 11,
+            "mae": 0.00048599149341936463,
+            "nrmse_capacity_percent": 0.1350163088597154,
+            "rmse": 0.001350163088597154
+          },
+          {
+            "count": 270,
+            "horizon_hour": 12,
+            "mae": 0.0005590707063674927,
+            "nrmse_capacity_percent": 0.15115736221406179,
+            "rmse": 0.0015115736221406179
+          },
+          {
+            "count": 270,
+            "horizon_hour": 13,
+            "mae": 0.0005562721579163163,
+            "nrmse_capacity_percent": 0.1572206265753891,
+            "rmse": 0.001572206265753891
+          },
+          {
+            "count": 270,
+            "horizon_hour": 14,
+            "mae": 0.0005679338618561074,
+            "nrmse_capacity_percent": 0.15816679095798658,
+            "rmse": 0.0015816679095798658
+          },
+          {
+            "count": 270,
+            "horizon_hour": 15,
+            "mae": 0.0005581183565987481,
+            "nrmse_capacity_percent": 0.14403848392820234,
+            "rmse": 0.0014403848392820235
+          },
+          {
+            "count": 270,
+            "horizon_hour": 16,
+            "mae": 0.0005073132338347258,
+            "nrmse_capacity_percent": 0.14795489668407302,
+            "rmse": 0.00147954896684073
+          },
+          {
+            "count": 270,
+            "horizon_hour": 17,
+            "mae": 0.00042659855551189845,
+            "nrmse_capacity_percent": 0.11659203869700718,
+            "rmse": 0.0011659203869700718
+          },
+          {
+            "count": 270,
+            "horizon_hour": 18,
+            "mae": 0.00042797067651042234,
+            "nrmse_capacity_percent": 0.10231423662714495,
+            "rmse": 0.0010231423662714495
+          },
+          {
+            "count": 270,
+            "horizon_hour": 19,
+            "mae": 0.0005895897843503109,
+            "nrmse_capacity_percent": 0.11193609278423505,
+            "rmse": 0.0011193609278423505
+          },
+          {
+            "count": 270,
+            "horizon_hour": 20,
+            "mae": 0.003851218951186402,
+            "nrmse_capacity_percent": 0.6799639748769104,
+            "rmse": 0.0067996397487691046
+          },
+          {
+            "count": 270,
+            "horizon_hour": 21,
+            "mae": 0.027922686078387347,
+            "nrmse_capacity_percent": 3.616064762495619,
+            "rmse": 0.03616064762495619
+          },
+          {
+            "count": 270,
+            "horizon_hour": 22,
+            "mae": 0.06379816354838787,
+            "nrmse_capacity_percent": 8.257366071637177,
+            "rmse": 0.08257366071637177
+          },
+          {
+            "count": 270,
+            "horizon_hour": 23,
+            "mae": 0.08402206569358155,
+            "nrmse_capacity_percent": 11.281558192156261,
+            "rmse": 0.11281558192156262
+          },
+          {
+            "count": 270,
+            "horizon_hour": 24,
+            "mae": 0.09870099647453538,
+            "nrmse_capacity_percent": 14.477796143192515,
+            "rmse": 0.14477796143192515
+          }
+        ],
+        "by_zone": {
+          "1": {
+            "count": 2160,
+            "mae": 0.031574019613893785,
+            "nrmse_capacity_percent": 6.875939806460335,
+            "rmse": 0.06875939806460335
+          },
+          "2": {
+            "count": 2160,
+            "mae": 0.041245989051927376,
+            "nrmse_capacity_percent": 9.155328693694297,
+            "rmse": 0.09155328693694298
+          },
+          "3": {
+            "count": 2160,
+            "mae": 0.036418872131178906,
+            "nrmse_capacity_percent": 7.245327573824105,
+            "rmse": 0.07245327573824105
+          }
+        },
+        "irradiance_active": {
+          "count": 3814,
+          "mae": 0.06148347570360335,
+          "nrmse_capacity_percent": 10.196179378108072,
+          "rmse": 0.10196179378108072
+        },
+        "overall": {
+          "count": 6480,
+          "mae": 0.036412960265666684,
+          "nrmse_capacity_percent": 7.822901494195612,
+          "rmse": 0.07822901494195612
+        }
+      }
+    }
+  ],
+  "selected_candidate": {
+    "colsample_bytree": 0.9,
+    "learning_rate": 0.03,
+    "max_depth": 6,
+    "min_child_weight": 5,
+    "n_estimators": 800,
+    "name": "depth6_lr003",
+    "reg_lambda": 1.0,
+    "subsample": 0.9
+  },
+  "selection_results": [
+    {
+      "best_iteration": 599,
+      "name": "depth3_lr005",
+      "validation_mae": 0.041486665793139664,
+      "validation_rmse": 0.08189013655129172
+    },
+    {
+      "best_iteration": 570,
+      "name": "depth4_lr003",
+      "validation_mae": 0.03908193205775514,
+      "validation_rmse": 0.08001647081459651
+    },
+    {
+      "best_iteration": 274,
+      "name": "depth6_lr003",
+      "validation_mae": 0.03647702496356779,
+      "validation_rmse": 0.07840139142769653
+    }
+  ],
+  "selection_rule": {
+    "metric": "validation_rmse",
+    "seed": 42,
+    "test_used_for_selection": false
+  },
+  "time_standard": "UTC"
+}
