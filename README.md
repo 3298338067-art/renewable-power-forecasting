@@ -32,7 +32,7 @@
 
 完整的数据、模型和评价定义见[中文技术报告](docs/technical_report_zh.md)。
 
-## 2. 固定模型
+## 2. 比较模型
 
 项目核心阶段只比较以下五类模型：
 
@@ -40,9 +40,7 @@
 2. Seasonal Persistence：季节性持续基线。
 3. XGBoost：树模型基线。
 4. LSTM：深度学习时序基线。
-5. Temporal-Attention LSTM：加入时序注意力的主模型。
-
-在核心结果完成前，不增加 STGCN、Transformer、概率预测或多种注意力机制。
+5. Temporal-Attention LSTM：加入时序注意力的扩展模型。
 
 ## 3. 固定评价指标
 
@@ -64,12 +62,14 @@ renewable-power-forecasting/
 |   `-- processed/       # 可直接用于训练的数据
 |-- docs/                # 项目说明与数据审计文档
 |-- notebooks/           # 探索性分析
+|-- renewable_forecasting/ # 核心 Python 源码
 |-- scripts/             # 环境检查及后续执行脚本
 |-- tests/               # 项目契约和功能测试
 |-- artifacts/
 |   `-- checkpoints/     # 模型权重，不上传 Git
 |-- reports/
 |   `-- figures/         # 最终图表
+|-- LICENSE              # MIT 许可证
 |-- requirements.txt
 `-- README.md
 ```
@@ -94,7 +94,9 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-正式实验已在 Python `3.11.16`、PyTorch `2.11.0+cu128`、XGBoost `3.2.0` 和 RTX 5080 上核验。训练配置默认请求 CUDA；没有兼容 GPU 时，自动化测试仍可在 CPU 运行，但完整训练需在本地配置副本中把 XGBoost、LSTM 和 Attention-LSTM 的 `device` 改为 `cpu`。安装特定 CUDA 构建时请使用 [PyTorch 官方安装器](https://pytorch.org/get-started/locally/)，不要改变其他实验参数。
+正式 GPU 实验已在 Python `3.11.16`、PyTorch `2.11.0+cu128`、XGBoost `3.2.0` 和 RTX 5080 上核验。发布后的干净克隆验证使用 Python `3.11.16` 和 PyTorch `2.13.0+cpu`，完成了依赖安装、自动化测试和命令行入口检查，没有重新执行完整训练。
+
+训练配置默认请求 CUDA；没有兼容 GPU 时，自动化测试仍可在 CPU 运行，但完整训练需在本地配置副本中把 XGBoost、LSTM 和 Attention-LSTM 的 `device` 改为 `cpu`。安装特定 CUDA 构建时请使用 [PyTorch 官方安装器](https://pytorch.org/get-started/locally/)，不要改变其他实验参数。Windows 用户建议将仓库克隆到较短路径（例如 `C:\src\rpf`），以避免第三方包的深层目录触发路径长度限制。
 
 检查环境：
 
@@ -210,21 +212,14 @@ GEFCom2014 数据不受本仓库 MIT 许可证覆盖，也不随仓库分发。�
 
 注意力权重和树模型特征重要性均是描述性模型量，不是因果证据。测试集只覆盖 2014 年 4–6 月，结论不能直接外推到其他季节、地区或电站。没有可信场站拓扑，因此未增加 STGCN；更复杂的模型本身不等同于更强证据。
 
-## 10. 当前进度
+## 10. 项目状态与复现验证
 
-- [x] 项目任务固定
-- [x] Python 独立环境建立
-- [x] CUDA 和 RTX 5080 验证
-- [x] 项目目录、Git 与测试框架建立
-- [x] 数据源和使用许可核验
-- [x] 数据字段与时间可用性审计
-- [x] 累计 NWP 转逐小时增量与异常审计
-- [x] 三站点 24→24 窗口、固定时间切分与训练集专用标准化
-- [x] 前一日持续性与 7 日季节性持续性基线
-- [x] XGBoost 候选选择、三随机种子训练与特征重要性
-- [x] 普通 Seq2Seq LSTM 训练、三随机种子评估与复现审计
-- [x] Temporal-Attention LSTM 三随机种子训练、注意力审计与公平比较
-- [x] History-only/NWP-only 输入消融、配对时间块 bootstrap 与统一可视化
-- [x] 最终中英文技术报告整理
+核心模型比较、三随机种子实验、输入消融、配对日期块 bootstrap 和中英文技术报告已完成。
 
-当前已经生成训练、验证和测试样本 `1917/270/273` 个。内部代码和产物审计已完成；仓库采用 MIT 许可证，公开发布仍需创建首个提交，并在干净克隆中执行最终复现检查。
+代码已提交至 GitHub，并完成本机全新克隆、新虚拟环境安装和基础验证：
+
+- 自动化测试：`51 passed, 2 skipped`；两项跳过源于正式原始数据及处理后数据未随仓库分发。
+- 8 个命令行入口的 `--help` 检查通过，依赖一致性检查通过。
+- 本次新环境使用 CPU 版 PyTorch，仅验证安装、基础测试和命令行入口，未重新执行完整 GPU 训练。
+
+完整实验复现需按[数据准备说明](data/README.md)获取官方数据，并按照前述流程运行预处理、训练及评估。
